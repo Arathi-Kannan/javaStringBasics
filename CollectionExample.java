@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class CollectionExample {
 
-    ArrayList<Integer> evenArrayList;
-    ArrayList<Integer> sumArrayList;
+    private ArrayList<Integer> evenArrayList;
+    private ArrayList<Integer> sumArrayList;
 
     public ArrayList<Integer> saveEvenNumbers(int end){
         int start = 2;
