@@ -29,7 +29,7 @@ public class CollectionExample {
               //multiplying each number by 2
               System.out.print(evenNumber * 2+", ");
               //adding the numbers
-              sum += evenNumber;
+              sum += (evenNumber*2);
               sumArrayList.add(sum);
           }
         }
