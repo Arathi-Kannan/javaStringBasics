@@ -97,6 +97,9 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             int size = empTreeSet.size();
             EmployeeTreeSet[] allEmps = new EmployeeTreeSet[size];
             empTreeSet.toArray(allEmps);
+            for(EmployeeTreeSet e:allEmps){
+                e.getEmployeeDetails();
+            }
             return allEmps;
         }
 
