@@ -19,10 +19,11 @@ public class EmployeeDB{
     public boolean deleteEmployee(int empId){
         boolean deleted = false;
         Iterator<Employee> it = empArrayList.iterator();
-        Employee chkEmp = new Employee();
+        Employee chkEmp;
         try{
             while (it.hasNext()) {
                 chkEmp = it.next();
+                //checking the employee based on their id
                 if (chkEmp.getEmpId() == empId) {
                     it.remove();
                     deleted = true;
@@ -41,6 +42,7 @@ public class EmployeeDB{
         Iterator<Employee> it = empArrayList.iterator();
         while (it.hasNext()) {
             Employee chkEmp = it.next();
+//checking the employee based on their id
             if (chkEmp.getEmpId() == empId) {
                 pay = chkEmp.getEmpSalary();
                 paySlip = "The employee ID "+empId+"'s pay is "+pay;
@@ -52,14 +54,17 @@ public class EmployeeDB{
 
     public Employee[] listAll(){
         Iterator<Employee> it = empArrayList.iterator();
-        Employee[] allEmps = new Employee[3];
-        int size = 0;
+        //getting the size of the arraylist
+        int size = empArrayList.size();
+        int index = 0;
+        Employee[] allEmps = new Employee[size];
         while(it.hasNext()) {
             Employee emp = new Employee();
             emp.setEmployeeDetails(it.next());
             emp.getEmployeeDetails();
-            allEmps[size]=emp;
-            size++;
+    //getting each of the employee objects from the arraylist and setting it into an Employee array
+            allEmps[index]=emp;
+            index++;
         }
         return allEmps;
     }
