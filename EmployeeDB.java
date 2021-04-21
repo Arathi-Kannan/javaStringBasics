@@ -54,18 +54,9 @@ public class EmployeeDB{
 
     public Employee[] listAll(){
         Iterator<Employee> it = empArrayList.iterator();
-        //getting the size of the arraylist
         int size = empArrayList.size();
-        int index = 0;
         Employee[] allEmps = new Employee[size];
-        while(it.hasNext()) {
-            Employee emp = new Employee();
-            emp.setEmployeeDetails(it.next());
-            emp.getEmployeeDetails();
-    //getting each of the employee objects from the arraylist and setting it into an Employee array
-            allEmps[index]=emp;
-            index++;
-        }
+        empArrayList.toArray(allEmps);
         return allEmps;
     }
 
@@ -81,5 +72,9 @@ public class EmployeeDB{
         boolean isDel = empdb.deleteEmployee(1);
         System.out.println("Deleted is "+isDel);
         Employee[] employees = empdb.listAll();
+        for (int i =0;i<employees.length;i++){
+            employees[i].getEmployeeDetails();
+        }
+        
     }
 }
