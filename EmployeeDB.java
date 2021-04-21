@@ -72,8 +72,8 @@ public class EmployeeDB{
         boolean isDel = empdb.deleteEmployee(1);
         System.out.println("Deleted is "+isDel);
         Employee[] employees = empdb.listAll();
-        for (int i =0;i<employees.length;i++){
-            employees[i].getEmployeeDetails();
+        for(Employee e:employees){
+            e.getEmployeeDetails();
         }
         
     }
