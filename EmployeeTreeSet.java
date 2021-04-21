@@ -116,10 +116,6 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             System.out.println("Deleted is "+isDel);
             //TreeSet sorts the objects because of the overridden compareTo method 
             EmployeeTreeSet[] employees = employeeTreeSetObj.listAll();
-            for(int i =0;i<employees.length;i++){
-                employees[i].getEmployeeDetails();
-            }
-
         }
 
     //Overriding the compareTo method of the Comparable interface
