@@ -94,19 +94,9 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
 
     //returns an array of employee objects
         public EmployeeTreeSet[] listAll(){
-            Iterator<EmployeeTreeSet> it = empTreeSet.iterator();
-            //getting the size of the TreeSet
             int size = empTreeSet.size();
-            //initializing the employee array with the size of the TreeSet
             EmployeeTreeSet[] allEmps = new EmployeeTreeSet[size];
-            int index = 0;
-            while(it.hasNext()) {
-                EmployeeTreeSet emp = new EmployeeTreeSet();
-                emp.setEmployeeDetails(it.next());
-                emp.getEmployeeDetails();
-                allEmps[index]=emp;
-                index++;
-            }
+            empTreeSet.toArray(allEmps);
             return allEmps;
         }
 
@@ -123,6 +113,10 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             System.out.println("Deleted is "+isDel);
             //TreeSet sorts the objects because of the overridden compareTo method 
             EmployeeTreeSet[] employees = employeeTreeSetObj.listAll();
+            for(int i =0;i<employees.length;i++){
+                employees[i].getEmployeeDetails();
+            }
+
         }
 
     //Overriding the compareTo method of the Comparable interface
