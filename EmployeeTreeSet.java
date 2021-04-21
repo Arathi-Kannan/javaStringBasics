@@ -38,6 +38,7 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
         this.empGender = employee.empGender;
         this.empSalary = employee.empSalary;
     }
+    
     public void getEmployeeDetails() {
         System.out.println("ID: " + this.empId);
         System.out.println("Name: " + this.empName);
@@ -49,6 +50,7 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
     public boolean addEmployee(EmployeeTreeSet employee){
             boolean addEmp = false;
             if (employee != null) {
+                //Adding the employee object into the TreeSet
                 empTreeSet.add(employee);
                 addEmp = true;
             }
@@ -62,6 +64,7 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             try{
                 while (it.hasNext()) {
                     chkEmp = it.next();
+                    //checking the employee id
                     if (chkEmp.getEmpId() == empId) {
                         it.remove();
                         deleted = true;
@@ -79,6 +82,7 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             Iterator<EmployeeTreeSet> it = empTreeSet.iterator();
             while (it.hasNext()) {
                 EmployeeTreeSet chkEmp = it.next();
+                //checking the employee id 
                 if (chkEmp.getEmpId() == empId) {
                     pay = chkEmp.getEmpSalary();
                     paySlip = "The employee ID "+empId+"'s pay is "+pay;
@@ -88,9 +92,12 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             return paySlip;
         }
 
+    //returns an array of employee objects
         public EmployeeTreeSet[] listAll(){
             Iterator<EmployeeTreeSet> it = empTreeSet.iterator();
+            //getting the size of the TreeSet
             int size = empTreeSet.size();
+            //initializing the employee array with the size of the TreeSet
             EmployeeTreeSet[] allEmps = new EmployeeTreeSet[size];
             int index = 0;
             while(it.hasNext()) {
@@ -114,9 +121,11 @@ public class EmployeeTreeSet implements Comparable<EmployeeTreeSet>{
             employeeTreeSetObj.showPaySlip(2);
             boolean isDel = employeeTreeSetObj.deleteEmployee(1);
             System.out.println("Deleted is "+isDel);
+            //TreeSet sorts the objects because of the overridden compareTo method 
             EmployeeTreeSet[] employees = employeeTreeSetObj.listAll();
         }
 
+    //Overriding the compareTo method of the Comparable interface
     @Override
     public int compareTo(EmployeeTreeSet e) {
 
